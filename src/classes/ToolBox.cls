@@ -13,6 +13,14 @@ public with sharing class ToolBox {
 		return objectType.getDescribe().getRecordTypeInfosByDeveloperName().get(recordTypeDeveloperName).getRecordTypeId();
 	}
 
+	public static Map<String, Id> getRecordTypeIdsByObject(String objectName) {
+		Map<String, Id> recordTypesByDeveloperName = new Map<String, Id>();
+		for(Schema.RecordTypeInfo info : getSObjectType(objectName).getDescribe().getRecordTypeInfosByDeveloperName().values()) {
+			recordTypesByDeveloperName.put(info.getName(), info.getRecordTypeId());
+		}
+		return recordTypesByDeveloperName;
+	}
+
 	public static List<Schema.PicklistEntry> getPicklistEntries(String objectName, String fieldName) {
 		Schema.DescribeSObjectResult objectDescribe = getSObjectType(objectName).getDescribe();
 		return objectDescribe.Fields.getMap().get(fieldName).getDescribe().getPicklistValues();

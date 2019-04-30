@@ -9,12 +9,22 @@ private class PricebookSingletonTest {
 	}
 
 	static TestMethod void getStdPricebookId_shouldGetId() {
-		Id stdPricebookId = PricebookSingleton.getStdPricebookId();
+		Test.startTest();
+
+			Id stdPricebookId = PricebookSingleton.getStdPricebookId();
+
+		Test.stopTest();
+
 		System.assertNotEquals(null, stdPricebookId);
 	}
 
 	static TestMethod void getStdPricebook_shouldGetStdPricebook() {
-		Pricebook2 stdPricebook = PricebookSingleton.getStdPricebook();
+		Test.startTest();
+
+			Pricebook2 stdPricebook = PricebookSingleton.getStdPricebook();
+
+		Test.stopTest();
+
 		System.assertNotEquals(null, stdPricebook);
 	}
 }
