@@ -6,12 +6,13 @@ private class TriggerBypassTest {
 		bypassMock.IsSuccess = false;
 
 		String triggerName = 'Case';
-		TriggerBypass bypass = new TriggerBypass(bypassMock);
+		TriggerBypass.BypassDI = bypassMock;
+
 		Boolean isSuccess = false;
 		Test.startTest();
 
 			try {
-				bypass.isActive(triggerName);
+				TriggerBypass.isActive(triggerName);
 			} catch(TriggerBypass.TriggerBypassException tbex) {
 				isSuccess = true;
 			}
@@ -25,10 +26,10 @@ private class TriggerBypassTest {
 		TriggerBypassDAMock bypassMock = new TriggerBypassDAMock();
 
 		String triggerName = 'Case';
-		TriggerBypass bypass = new TriggerBypass(bypassMock);
+		TriggerBypass.BypassDI = bypassMock;
 		Test.startTest();
 
-			Boolean isSuccess = bypass.isActive(triggerName);
+			Boolean isSuccess = TriggerBypass.isActive(triggerName);
 
 		Test.stopTest();
 
@@ -40,10 +41,10 @@ private class TriggerBypassTest {
 		bypassMock.IsActive = false;
 
 		String triggerName = 'Case';
-		TriggerBypass bypass = new TriggerBypass(bypassMock);
+		TriggerBypass.BypassDI = bypassMock;
 		Test.startTest();
 
-			Boolean isSuccess = !bypass.isActive(triggerName);
+			Boolean isSuccess = !TriggerBypass.isActive(triggerName);
 
 		Test.stopTest();
 

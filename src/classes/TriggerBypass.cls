@@ -1,18 +1,12 @@
 public with sharing class TriggerBypass {
-	private final String REPLACER = '{!name}';
-	private final String ERROR_MESSAGE = 'No record by MasterLabel: ' + REPLACER + ' found in TriggerBypass__mdt Custom Metadata.';
+	private static final String REPLACER = '{!name}';
+	private static final String ERROR_MESSAGE = 'No record by MasterLabel: ' + REPLACER + ' found in TriggerBypass__mdt Custom Metadata.';
 
-	private TriggerBypassDAI bypassAccessor;
+	private static TriggerBypassDAI bypassAccessor;
+	public static TriggerBypassDAI BypassDI {get; set {
+		bypassAccessor = value; }}
 
-	public TriggerBypass() {
-		this(new TriggerBypassDA());
-	}
-
-	public TriggerBypass(TriggerBypassDAI accessor) {
-		this.bypassAccessor = accessor;
-	}
-
-	public Boolean isActive(String triggerName) {
+	public static Boolean isActive(String triggerName) {
 		TriggerBypass__mdt record;
 
 		try {

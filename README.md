@@ -34,8 +34,7 @@ List<Schema.PicklistEntry> entries = ToolBox.getPicklistEntries('Account', 'Type
 trigger User on User (after insert, after update) {
 
     // Determine if the CustomMetadata Record is active.
-    TriggerBypass bypass = new TriggerBypass();
-    if(bypass.isActive('User')) {
+    if(TriggerBypass.isActive('User')) {
         // Trigger logic
     }
 
