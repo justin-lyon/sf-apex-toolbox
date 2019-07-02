@@ -33,4 +33,16 @@ public with sharing class ToolBox {
 	public static OrgLimit getOrgLimit(String limitName) {
 		return getAllOrgLimits().get(limitName);
 	}
+
+	public static String generateGUID() {
+		Blob aesKey = Crypto.generateAesKey(128);
+		String hexKey = EncodingUtil.convertToHex(aesKey);
+		List<String> segments = new List<String>();
+
+		segments.add(hexKey.substring(0, 8));
+		segments.add(hexKey.substring(8, 12));
+		segments.add(hexKey.substring(12, 16));
+		segments.add(hexKey.substring(20));
+		return String.join(segments, '-');
+	}
 }

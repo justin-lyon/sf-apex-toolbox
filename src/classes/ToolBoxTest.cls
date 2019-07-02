@@ -77,4 +77,25 @@ private class ToolBoxTest {
 
 		System.assertNotEquals(null, l);
 	}
+
+	static TestMethod void generateGUID_default_shouldGetID() {
+		Test.startTest();
+
+			String guid = ToolBox.generateGUID();
+
+		Test.stopTest();
+
+		System.assertNotEquals(null, guid);
+	}
+
+	static TestMethod void generateGUID_default_shouldGetUniqueIDs() {
+		Test.startTest();
+
+			String guid1 = ToolBox.generateGUID();
+			String guid2 = ToolBox.generateGUID();
+
+		Test.stopTest();
+
+		System.assertNotEquals(guid1, guid2, 'Two generated GUIDs are unique.');
+	}
 }
