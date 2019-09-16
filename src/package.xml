@@ -25,5 +25,9 @@
         <members>TriggerBypass.User</members>
         <name>CustomMetadata</name>
     </types>
+    <types>
+        <members>TriggerBypass__mdt-Trigger Bypass Layout</members>
+        <name>Layout</name>
+    </types>
     <version>45.0</version>
 </Package>
