@@ -8,7 +8,7 @@
         <members>TriggerBypass</members>
         <members>TriggerBypassDA</members>
         <members>TriggerBypassDAI</members>
-        <members>TriggerBypassMock</members>
+        <members>TriggerBypassDAMock</members>
         <members>TriggerBypassDATest</members>
         <members>TriggerBypassTest</members>
         <name>ApexClass</name>
