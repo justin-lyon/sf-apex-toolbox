@@ -2,6 +2,12 @@
 
 > Some small utility classes for working with Salesforce Apex.
 
+## Deploy to Salesforce
+
+Using the [githubsfdeploy app](https://github.com/afawcett/githubsfdeploy), add this code to your Salesfore Org.
+
+<a target="_blank" rel="noopener noreferrer" href="https://githubsfdeploy.herokuapp.com/app/githubdeploy/jlyon87/sf-apex-toolbox"><img src="https://raw.githubusercontent.com/afawcett/githubsfdeploy/master/src/main/webapp/resources/img/deploy.png" alt="Button" style="max-width:100%;"></a>
+
 ## Usage
 
 ### PricebookSingleton
