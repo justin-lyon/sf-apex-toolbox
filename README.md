@@ -61,4 +61,8 @@ MockIdGenerator idGenBySObjectType = new MockIdGenerator(Account.SObjectType);
 Id newMockId = idGenBySObject.getMockId();
 Id anotherMockId = idGenBySObjectType.getMockId();
 Id stateslessMockId = MockIdGenerator.getMockId(Account.SObjectType);
+
+System.debug(newMockId); // -> 001000000000001AAA
+System.debug(anotherMockId); // -> 001000000000002AAA
+System.debug(statelessMockId); // -> 001000000000003AAA
 ```
