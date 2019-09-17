@@ -47,3 +47,18 @@ trigger User on User (after insert, after update) {
     // Will throw TriggerBypass.TriggerBypassException if the CustomMetadata record does not exist.
 }
 ```
+
+### MockIdGenerator
+
+> Generate unique Salesforce Record Ids by SObjectType or SObject
+
+```java
+// Construct with SObject or SObjectType
+MockIdGenerator idGenBySObject = new MockIdGenerator(new Account());
+MockIdGenerator idGenBySObjectType = new MockIdGenerator(Account.SObjectType);
+
+// All IDs are unique, and can be invoked as a static method too.
+Id newMockId = idGenBySObject.getMockId();
+Id anotherMockId = idGenBySObjectType.getMockId();
+Id stateslessMockId = MockIdGenerator.getMockId(Account.SObjectType);
+```
