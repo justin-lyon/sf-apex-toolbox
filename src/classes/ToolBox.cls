@@ -26,14 +26,6 @@ public with sharing class ToolBox {
 		return objectDescribe.Fields.getMap().get(fieldName).getDescribe().getPicklistValues();
 	}
 
-	public static Map<String, OrgLimit> getAllOrgLimits() {
-		return OrgLimits.getMap();
-	}
-
-	public static OrgLimit getOrgLimit(String limitName) {
-		return getAllOrgLimits().get(limitName);
-	}
-
 	public static String generateGUID() {
 		Blob aesKey = Crypto.generateAesKey(128);
 		String hexKey = EncodingUtil.convertToHex(aesKey);

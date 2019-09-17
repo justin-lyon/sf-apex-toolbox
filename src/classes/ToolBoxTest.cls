@@ -58,26 +58,6 @@ private class ToolBoxTest {
 		System.assertEquals(accountSource.size(), entries.size());
 	}
 
-	static TestMethod void getAllOrgLimits_givenNothing_shouldGetMapOfLimits() {
-		Test.startTest();
-
-			Map<String, OrgLimit> limits = ToolBox.getAllOrgLimits();
-
-		Test.stopTest();
-
-		System.assertNotEquals(null, limits);
-	}
-
-	static TestMethod void getOrgLimit_givenName_shouldGetLimit() {
-		Test.startTest();
-
-			OrgLimit l = ToolBox.getOrgLimit('SingleEmail');
-
-		Test.stopTest();
-
-		System.assertNotEquals(null, l);
-	}
-
 	static TestMethod void generateGUID_default_shouldGetID() {
 		Test.startTest();
 
