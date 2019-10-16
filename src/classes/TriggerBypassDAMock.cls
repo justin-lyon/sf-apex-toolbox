@@ -5,7 +5,7 @@ public inherited sharing class TriggerBypassDAMock implements TriggerBypassDAI {
 
 	public TriggerBypass__mdt queryByMasterLabel(String masterLabel) {
 		if(!IsSuccess) {
-			throw new TriggerBypass.TriggerBypassException('Forced exception from TriggerBypassDAMock.');
+			throw new QueryException('Forced exception from TriggerBypassDAMock.');
 		}
 
 		return new TriggerBypass__mdt(

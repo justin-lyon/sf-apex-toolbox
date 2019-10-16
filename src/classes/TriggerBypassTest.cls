@@ -5,7 +5,7 @@ private class TriggerBypassTest {
 		TriggerBypassDAMock bypassMock = new TriggerBypassDAMock();
 		bypassMock.IsSuccess = false;
 
-		String triggerName = 'Case';
+		String triggerName = 'NotARealThing';
 		TriggerBypass.BypassDI = bypassMock;
 
 		Boolean isSuccess = false;
