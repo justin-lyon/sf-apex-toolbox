@@ -9,9 +9,11 @@ private class PricebookSingletonTest {
 	}
 
 	static TestMethod void getStdPricebookId_shouldGetId() {
+		PricebookSingleton instance = PricebookSingleton.get();
+
 		Test.startTest();
 
-			Id stdPricebookId = PricebookSingleton.getStdPricebookId();
+			Id stdPricebookId = instance.getStdPricebookId();
 
 		Test.stopTest();
 
@@ -19,12 +21,24 @@ private class PricebookSingletonTest {
 	}
 
 	static TestMethod void getStdPricebook_shouldGetStdPricebook() {
+		PricebookSingleton instance = PricebookSingleton.get();
+
 		Test.startTest();
 
-			Pricebook2 stdPricebook = PricebookSingleton.getStdPricebook();
+			Pricebook2 stdPricebook = instance.getStdPricebook();
 
 		Test.stopTest();
 
 		System.assertNotEquals(null, stdPricebook);
+	}
+
+	static TestMethod void instance_givenTwoGets_shouldGetOneInstance() {
+		PricebookSingleton instance1 = PricebookSingleton.get();
+		PricebookSingleton instance2 = PricebookSingleton.get();
+
+		Integer hash1 = System.hashCode(instance1);
+		Integer hash2 = System.hashCode(instance2);
+
+		System.assertEquals(hash1, hash2);
 	}
 }
