@@ -1,9 +1,16 @@
 public with sharing class MockIdGenerator {
 
 	public SObjectType mockType {get; private set;}
-	private static Integer currentId = 1;
+
+	private static Map<String, Integer> counts;
+	static {
+		counts = new Map<String, Integer>();
+	}
 
 	public MockIdGenerator(SObjectType type) {
+		String objectName = String.valueOf(type);
+		if (!counts.containsKey(objectName)) counts.put(objectName, 0);
+
 		this.mockType = type;
 	}
 
@@ -16,8 +23,17 @@ public with sharing class MockIdGenerator {
 		return getMockId(this.mockType);
 	}
 
+	public static Id getMockId(SObject obj) {
+		return getMockId(obj.getSObjectType());
+	}
+
 	public static Id getMockId(SObjectType type) {
-		String nextIdStub = String.valueOf(currentId++);
+		String objectName = String.valueOf(type);
+		if (!counts.containsKey(objectName)) counts.put(objectName, 0);
+
+		Integer currentCount = counts.get(objectName);
+		counts.put(objectName, ++currentCount);
+		String nextIdStub = String.valueOf(currentCount);
 
 		return type.getDescribe().getKeyPrefix()
 			+ fillId(nextIdStub)
